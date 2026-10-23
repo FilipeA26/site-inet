@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-navy-ink text-white font-sans antialiased; }
+  h1, h2, h3 { @apply font-display; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .glass { @apply border border-white/10 bg-white/[0.04] backdrop-blur-md; }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-lime px-6 py-3 font-semibold text-navy-ink
+      transition hover:shadow-[0_0_30px_rgba(112,224,0,0.55)] hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-6 py-3 font-semibold
+      text-white transition hover:border-lime hover:text-lime;
+  }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.25em] text-lime; }
+  .section-title { @apply font-display text-4xl font-bold leading-tight sm:text-5xl; }
+}
+
+@keyframes sway {
+  from { transform: rotate(-1.5deg); }
+  to { transform: rotate(1.5deg); }
+}
+@keyframes glow {
+  from { opacity: 0.35; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
